@@ -26,4 +26,4 @@ jobs:
         run: playwright install chromium
 
       - name: Uruchom testy
-        run: pytest tests/ --tb=short -v
+        run: pytest test_todo.py --tb=short -v
