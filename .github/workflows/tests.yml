@@ -1,0 +1,29 @@
+name: Testy E2E Playwright
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  testy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pobierz kod
+        uses: actions/checkout@v4
+
+      - name: Zainstaluj Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Zainstaluj zależności
+        run: pip install -r requirements.txt
+
+      - name: Zainstaluj przeglądarkę
+        run: playwright install chromium
+
+      - name: Uruchom testy
+        run: pytest tests/ --tb=short -v
