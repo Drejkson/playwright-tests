@@ -23,3 +23,5 @@ pytest tests/ -v
 ## CI/CD
 
 Testy uruchamiają się automatycznie przy każdym `push` do brancha `main` przez GitHub Actions.
+
+#aktualizacja
