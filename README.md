@@ -24,4 +24,4 @@ pytest tests/ -v
 
 Testy uruchamiają się automatycznie przy każdym `push` do brancha `main` przez GitHub Actions.
 
-#aktualizacja
+
