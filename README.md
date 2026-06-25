@@ -10,7 +10,7 @@ Projekt testów end-to-end dla aplikacji TodoMVC. Pokrywa 12 krytyczne ścieżki
 | `test_oznacz_zadanie_jako_wykonane` | Oznaczenie zadania jako done → weryfikacja licznika | ~2 min |
 | `test_usun_zadanie` | Usunięcie zadania → weryfikacja pustej listy | ~2 min |
 
-Łączny czas regresji manualnej: ~30 min → po automatyzacji: **12 sec** (czas CI).
+Łączny czas regresji manualnej: ~5 min → po automatyzacji: **12 sec** (czas CI).
 
 ## Jak uruchomić lokalnie
 
