@@ -1,4 +1,4 @@
-name: Testy E2E Playwright
+﻿name: Testy E2E Playwright
 
 on:
   push:
