@@ -1,45 +1,46 @@
 name: Testy E2E Playwright
- 
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
- 
+
+permissions:
+  contents: write
+
 jobs:
   testy:
     runs-on: ubuntu-latest
- 
+
     steps:
       - name: Pobierz kod
         uses: actions/checkout@v4
- 
+
       - name: Zainstaluj Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
- 
+
       - name: Zainstaluj zależności
         run: pip install -r requirements.txt
- 
+
       - name: Zainstaluj przeglądarkę
         run: playwright install chromium
- 
+
       - name: Uruchom testy
-        run: pytest test_todo.py --tb=short -v --html=report.html --self-contained-html
- 
+        run: pytest test_todo.py --tb=short -v --html=public/report.html --self-contained-html
+
       - name: Zapisz raport jako artefakt
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: raport-html
-          path: report.html
- 
+          path: public/report.html
+
       - name: Deploy raportu na GitHub Pages
         if: github.ref == 'refs/heads/main' && always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          include_files: report.html
-          destination_dir: .
+          publish_dir: ./public
